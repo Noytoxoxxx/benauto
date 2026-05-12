@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEN AUTO CUSTOMS | L'Excellence Automobile à Drancy</title>
+    <meta name="description" content="Carrosserie, Peinture, Detailing et Personnalisation automobile haut de gamme à Drancy.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#E11D48',
+                            dark: '#0A0A0A',
+                            zinc: '#18181B',
+                            light: '#F4F4F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #F4F4F5;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(225, 29, 72, 0.5);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 1));
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: #E11D48;
+        }
+
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-premium::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-premium:hover::after {
+            left: 100%;
+        }
+
+        .nav-scrolled {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animation pour les barres de progression ou statistiques */
+        @keyframes grow {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .stat-glow:hover {
+            box-shadow: 0 0 20px rgba(225, 29, 72, 0.3);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E11D48;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-brand-red rounded-lg flex items-center justify-center rotate-3">
+                    <i class="fas fa-car-side text-white text-xl"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tighter uppercase">Ben Auto<span class="text-brand-red">Customs</span></span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 items-center text-sm font-medium uppercase tracking-widest">
+                <a href="#accueil" class="hover:text-brand-red transition-colors">Accueil</a>
+                <a href="#services" class="hover:text-brand-red transition-colors">Services</a>
+                <a href="#realisations" class="hover:text-brand-red transition-colors">Réalisations</a>
+                <a href="#avis" class="hover:text-brand-red transition-colors">Avis</a>
+                <a href="#contact" class="hover:text-brand-red transition-colors">Contact</a>
+                <a href="tel:0767955364" class="bg-brand-red px-6 py-2.5 rounded-full text-white btn-premium">Prendre RDV</a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-bold uppercase hidden">
+        <button id="close-menu" class="absolute top-8 right-8 text-3xl">&times;</button>
+        <a href="#accueil" class="mobile-link">Accueil</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#realisations" class="mobile-link">Réalisations</a>
+        <a href="#avis" class="mobile-link">Avis</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="tel:0767955364" class="bg-brand-red px-8 py-3 rounded-full text-lg">Appeler maintenant</a>
+    </div>
+
+    <section id="accueil" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Placeholder (Automotive Vibe) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920" alt="Luxe Auto" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="text-brand-red font-bold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Passion & Expertise Automobile</h2>
+            <h1 class="text-5xl md:text-8xl font-black uppercase leading-tight mb-6">
+                L'Excellence <br> <span class="text-glow">à Drancy</span>
+            </h1>
+            <p class="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light italic">
+                Carrosserie • Peinture • Detailing • Personnalisation
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="#services" class="w-full md:w-auto px-10 py-4 bg-brand-red text-white font-bold rounded-full btn-premium uppercase tracking-wider">
+                    Découvrir nos services
+                </a>
+                <a href="#contact" class="w-full md:w-auto px-10 py-4 glass-card text-white font-bold rounded-full hover:bg-white hover:text-black transition-all uppercase tracking-wider">
+                    Nous contacter
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-block p-2 bg-zinc-900 border border-zinc-800 rounded-lg mb-4 text-brand-red text-xs font-bold uppercase tracking-widest">
+                        À propos de nous
+                    </div>
+                    <h2 class="text-4xl font-extrabold mb-6 uppercase">Votre véhicule entre les mains d'un <span class="text-brand-red">expert</span></h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        Sous l'impulsion d'Issam, **BEN AUTO CUSTOMS** s'est imposé comme une référence à Drancy pour les passionnés d'automobile. Nous ne nous contentons pas de réparer, nous sublimons votre véhicule avec une précision chirurgicale.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Qu'il s'agisse d'un simple choc de carrosserie ou d'une personnalisation esthétique complète, nous allions savoir-faire traditionnel et technologies modernes pour un résultat irréprochable.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-card p-6 rounded-2xl stat-glow transition-all">
+                            <div class="text-3xl font-black text-brand-red mb-1">4.8/5</div>
+                            <div class="text-xs uppercase tracking-tighter text-zinc-500 italic font-bold">Note moyenne</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl stat-glow transition-all">
+                            <div class="text-3xl font-black text-brand-red mb-1">20+</div>
+                            <div class="text-xs uppercase tracking-tighter text-zinc-500 italic font-bold">Avis Clients</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl stat-glow transition-all">
+                            <div class="text-3xl font-black text-brand-red mb-1">PREMIUM</div>
+                            <div class="text-xs uppercase tracking-tighter text-zinc-500 italic font-bold">Service Qualité</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl stat-glow transition-all">
+                            <div class="text-3xl font-black text-brand-red mb-1">RAPIDE</div>
+                            <div class="text-xs uppercase tracking-tighter text-zinc-500 italic font-bold">Intervention</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" data-aos="fade-left">
+                    <div class="rounded-3xl overflow-hidden border-4 border-zinc-800 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&q=80&w=800" alt="Atelier Detailing" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-brand-red p-8 rounded-2xl hidden md:block">
+                        <i class="fas fa-award text-4xl text-white"></i>
+                        <p class="mt-2 font-bold text-white uppercase text-xs tracking-widest">Garantie Qualité</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-zinc-950 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-brand-red font-bold uppercase tracking-widest mb-2 italic">Nos prestations</h2>
+                <h3 class="text-4xl md:text-5xl font-black uppercase">Services <span class="text-zinc-600">Sur-Mesure</span></h3>
+                <div class="w-24 h-1 bg-brand-red mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card glass-card p-8 rounded-3xl transition-all duration-500 hover:-translate-y-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon text-4xl text-zinc-500 mb-6 transition-all duration-300">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 uppercase italic">Carrosserie</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Réparation de chocs, redressement et remise à neuf de tous types de carrosseries avec soin extrême.</p>
+                    <a href="#contact" class="text-brand-red text-xs font-bold uppercase tracking-widest hover:underline">Demander un devis</a>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card glass-card p-8 rounded-3xl transition-all duration-500 hover:-translate-y-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon text-4xl text-zinc-500 mb-6 transition-all duration-300">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 uppercase italic">Peinture Auto</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Peinture haute définition, raccords invisibles et personnalisation de teintes sportives ou mates.</p>
+                    <a href="#contact" class="text-brand-red text-xs font-bold uppercase tracking-widest hover:underline">En savoir plus</a>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card glass-card p-8 rounded-3xl transition-all duration-500 hover:-translate-y-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon text-4xl text-zinc-500 mb-6 transition-all duration-300">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 uppercase italic">Detailing</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Polissage, lustrage et protection céramique pour redonner à votre auto son éclat d'origine en showroom.</p>
+                    <a href="#contact" class="text-brand-red text-xs font-bold uppercase tracking-widest hover:underline">Voir les détails</a>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card glass-card p-8 rounded-3xl transition-all duration-500 hover:-translate-y-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon text-4xl text-zinc-500 mb-6 transition-all duration-300">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 uppercase italic">Customs</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-6">Personnalisation esthétique complète : kit carrosserie, déshabillage chrome, et modifications visuelles.</p>
+                    <a href="#contact" class="text-brand-red text-xs font-bold uppercase tracking-widest hover:underline">Projet spécial</a>
+                </div>
+            </div>
+        </div>
+        <!-- Light effect -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-red/10 blur-[120px] rounded-full"></div>
+    </section>
+
+    <section id="realisations" class="py-24 bg-brand-dark overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+                <div>
+                    <h2 class="text-brand-red font-bold uppercase tracking-widest mb-2 italic">Portfolio</h2>
+                    <h3 class="text-4xl font-black uppercase">Nos Dernières <span class="text-zinc-600">Réalisations</span></h3>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <p class="text-zinc-500 max-w-md italic">Aperçu du travail de précision effectué dans notre atelier de Drancy.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-3xl h-[400px]" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=800" alt="Sport Car" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <p class="text-brand-red text-xs font-bold uppercase mb-1">Peinture complète</p>
+                        <h4 class="text-xl font-bold uppercase tracking-wider italic">Audi RS6 Performance</h4>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-3xl h-[400px]" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1555626906-fcf10d6851b4?auto=format&fit=crop&q=80&w=800" alt="Polissage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <p class="text-brand-red text-xs font-bold uppercase mb-1">Detailing & Céramique</p>
+                        <h4 class="text-xl font-bold uppercase tracking-wider italic">BMW M4 Competition</h4>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-3xl h-[400px]" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800" alt="Porsche" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <p class="text-brand-red text-xs font-bold uppercase mb-1">Carrosserie</p>
+                        <h4 class="text-xl font-bold uppercase tracking-wider italic">Porsche 911 Carrera</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="avis" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-brand-red font-bold uppercase tracking-widest mb-2 italic">Témoignages</h2>
+                <h3 class="text-4xl font-black uppercase italic">La satisfaction de nos <span class="text-zinc-600">clients</span></h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Avis 1 -->
+                <div class="glass-card p-10 rounded-[40px] relative" data-aos="fade-right">
+                    <div class="absolute -top-5 left-10 bg-brand-red w-10 h-10 flex items-center justify-center rounded-full text-white">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="flex text-brand-red mb-6 space-x-1">
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                    </div>
+                    <p class="text-zinc-400 italic leading-relaxed mb-8">"Garage au top ! Rapport qualité-prix exceptionnel et accueil très professionnel. Ma voiture est comme neuve après son passage pour une peinture complète."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">JP</div>
+                        <div>
+                            <h5 class="font-bold text-white uppercase text-sm tracking-widest">Jean-Pierre M.</h5>
+                            <p class="text-xs text-zinc-600 uppercase">Client Google</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Avis 2 -->
+                <div class="glass-card p-10 rounded-[40px] relative" data-aos="fade-up">
+                    <div class="absolute -top-5 left-10 bg-brand-red w-10 h-10 flex items-center justify-center rounded-full text-white">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="flex text-brand-red mb-6 space-x-1">
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                    </div>
+                    <p class="text-zinc-400 italic leading-relaxed mb-8">"Issam connaît parfaitement son métier. Un vrai passionné qui prend le temps d'expliquer les étapes. Le detailing sur ma Mercedes est tout simplement bluffant."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">SL</div>
+                        <div>
+                            <h5 class="font-bold text-white uppercase text-sm tracking-widest">Sofiane L.</h5>
+                            <p class="text-xs text-zinc-600 uppercase">Client Régulier</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Avis 3 -->
+                <div class="glass-card p-10 rounded-[40px] relative" data-aos="fade-left">
+                    <div class="absolute -top-5 left-10 bg-brand-red w-10 h-10 flex items-center justify-center rounded-full text-white">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="flex text-brand-red mb-6 space-x-1">
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                    </div>
+                    <p class="text-zinc-400 italic leading-relaxed mb-8">"Efficacité et sérieux. Les délais ont été respectés et le résultat dépasse mes attentes pour une réparation de carrosserie sur mon aile arrière."</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">MK</div>
+                        <div>
+                            <h5 class="font-bold text-white uppercase text-sm tracking-widest">Mélanie K.</h5>
+                            <p class="text-xs text-zinc-600 uppercase">Client Google</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-dark overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-brand-red font-bold uppercase tracking-widest mb-2 italic">Organisation</h2>
+                <h3 class="text-4xl font-black uppercase">Notre Processus <span class="text-zinc-600">Premium</span></h3>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-px bg-zinc-800 hidden md:block"></div>
+                
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between" data-aos="fade-right">
+                        <div class="md:w-5/12 text-center md:text-right">
+                            <h4 class="text-2xl font-bold text-white uppercase mb-2">01. Diagnostic</h4>
+                            <p class="text-zinc-500 italic">Évaluation complète des dégâts ou étude de votre projet de personnalisation.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-brand-red flex items-center justify-center text-white font-bold z-10 my-4 md:my-0 shadow-[0_0_15px_rgba(225,29,72,0.8)]">1</div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center justify-between" data-aos="fade-left">
+                        <div class="md:w-5/12 text-center md:text-left">
+                            <h4 class="text-2xl font-bold text-white uppercase mb-2">02. Devis Personnalisé</h4>
+                            <p class="text-zinc-500 italic">Estimation précise sans surprise, adaptée à vos besoins et à votre budget.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-brand-red flex items-center justify-center text-white font-bold z-10 my-4 md:my-0 shadow-[0_0_15px_rgba(225,29,72,0.8)]">2</div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between" data-aos="fade-right">
+                        <div class="md:w-5/12 text-center md:text-right">
+                            <h4 class="text-2xl font-bold text-white uppercase mb-2">03. Réparation / Préparation</h4>
+                            <p class="text-zinc-500 italic">Travail méticuleux réalisé par nos experts avec les meilleurs matériaux.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-brand-red flex items-center justify-center text-white font-bold z-10 my-4 md:my-0 shadow-[0_0_15px_rgba(225,29,72,0.8)]">3</div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center justify-between" data-aos="fade-left">
+                        <div class="md:w-5/12 text-center md:text-left">
+                            <h4 class="text-2xl font-bold text-white uppercase mb-2">04. Livraison</h4>
+                            <p class="text-zinc-500 italic">Remise des clés d'un véhicule sublimé, prêt à reprendre la route en toute beauté.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-brand-red flex items-center justify-center text-white font-bold z-10 my-4 md:my-0 shadow-[0_0_15px_rgba(225,29,72,0.8)]">4</div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div data-aos="fade-up">
+                    <h2 class="text-brand-red font-bold uppercase tracking-widest mb-2 italic">Parlons de votre auto</h2>
+                    <h3 class="text-5xl font-black uppercase mb-8">Contactez <span class="text-zinc-600">L'Atelier</span></h3>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-14 h-14 glass-card flex items-center justify-center rounded-2xl text-brand-red text-xl">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-bold uppercase mb-1 italic">Adresse</h5>
+                                <p class="text-zinc-500 uppercase text-sm tracking-wider">57 Rue Balzac, 93700 Drancy</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-6">
+                            <div class="w-14 h-14 glass-card flex items-center justify-center rounded-2xl text-brand-red text-xl">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-bold uppercase mb-1 italic">Téléphone</h5>
+                                <p class="text-zinc-500 uppercase text-sm tracking-wider hover:text-brand-red transition-colors"><a href="tel:0767955364">07 67 95 53 64</a></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-6">
+                            <div class="w-14 h-14 glass-card flex items-center justify-center rounded-2xl text-brand-red text-xl">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-bold uppercase mb-1 italic">Horaires</h5>
+                                <p class="text-zinc-500 uppercase text-sm tracking-wider">Lun - Sam : 09h00 - 18h00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="https://maps.google.com/?q=57+Rue+Balzac+93700+Drancy" target="_blank" class="px-8 py-3 bg-white text-black font-bold rounded-full uppercase text-xs tracking-widest hover:bg-brand-red hover:text-white transition-all">Google Maps</a>
+                        <a href="tel:0767955364" class="px-8 py-3 border border-zinc-800 rounded-full font-bold uppercase text-xs tracking-widest hover:border-brand-red transition-all">Appeler</a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 rounded-[40px]" data-aos="fade-left">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-zinc-500 italic">Nom complet</label>
+                                <input type="text" placeholder="Votre nom" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 focus:border-brand-red outline-none transition-all text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-zinc-500 italic">Téléphone</label>
+                                <input type="tel" placeholder="06 .. .. .. .." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 focus:border-brand-red outline-none transition-all text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-zinc-500 italic">Véhicule (Marque/Modèle)</label>
+                            <input type="text" placeholder="Ex: BMW M3 E92" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 focus:border-brand-red outline-none transition-all text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-zinc-500 italic">Prestation souhaitée</label>
+                            <select class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 focus:border-brand-red outline-none transition-all text-sm">
+                                <option>Carrosserie / Peinture</option>
+                                <option>Detailing / Lustrage</option>
+                                <option>Protection Céramique</option>
+                                <option>Personnalisation</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-zinc-500 italic">Message</label>
+                            <textarea rows="4" placeholder="Décrivez votre projet..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-5 py-4 focus:border-brand-red outline-none transition-all text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-5 bg-brand-red text-white font-black uppercase tracking-[0.2em] rounded-xl btn-premium text-sm">Envoyer ma demande</button>
+                    </form>
+                    <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl bg-green-500/20 text-green-400 text-center font-bold text-sm">
+                        Votre message a bien été envoyé !
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-brand-dark border-t border-zinc-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 text-center md:text-left">
+                <div>
+                    <div class="flex items-center space-x-2 justify-center md:justify-start mb-4">
+                        <div class="w-8 h-8 bg-brand-red rounded flex items-center justify-center rotate-3">
+                            <i class="fas fa-car-side text-white text-sm"></i>
+                        </div>
+                        <span class="text-lg font-black uppercase tracking-tighter italic">Ben Auto<span class="text-brand-red">Customs</span></span>
+                    </div>
+                    <p class="text-zinc-600 text-xs uppercase tracking-widest max-w-xs">
+                        L'art de la carrosserie et du detailing premium à Drancy depuis des années.
+                    </p>
+                </div>
+                
+                <div class="flex space-x-12">
+                    <div class="flex flex-col space-y-2 uppercase text-[10px] tracking-widest font-bold text-zinc-500">
+                        <a href="#accueil" class="hover:text-white transition-colors">Accueil</a>
+                        <a href="#services" class="hover:text-white transition-colors">Services</a>
+                        <a href="#realisations" class="hover:text-white transition-colors">Réalisations</a>
+                    </div>
+                    <div class="flex flex-col space-y-2 uppercase text-[10px] tracking-widest font-bold text-zinc-500">
+                        <a href="#avis" class="hover:text-white transition-colors">Avis</a>
+                        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                        <a href="#" class="hover:text-white transition-colors">Légal</a>
+                    </div>
+                </div>
+
+                <div class="flex space-x-6 text-xl">
+                    <a href="#" class="text-zinc-500 hover:text-brand-red transition-all transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-zinc-500 hover:text-brand-red transition-all transform hover:scale-110"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-zinc-500 hover:text-brand-red transition-all transform hover:scale-110"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="text-zinc-500 hover:text-brand-red transition-all transform hover:scale-110"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-zinc-900 text-center">
+                <p class="text-zinc-700 text-[10px] uppercase tracking-[0.3em] font-medium">
+                    &copy; 2024 BEN AUTO CUSTOMS. Créé avec passion pour l'automobile.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialisation AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quart'
+        });
+
+        // Gestion de la Navbar au Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('nav-scrolled', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Menu Mobile
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Formulaire Contact Simplifié (Simulation)
+        const contactForm = document.getElementById('contact-form');
+        const feedback = document.getElementById('form-feedback');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            feedback.classList.remove('hidden');
+            contactForm.reset();
+            setTimeout(() => feedback.classList.add('hidden'), 5000);
+        });
+
+        // Smooth Scroll Offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
